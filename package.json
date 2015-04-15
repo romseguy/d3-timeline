@@ -1,0 +1,24 @@
+{
+  "dev_mode": false,
+  "skip_splash": false,
+  "skip_to_project": "",
+  "name": "d3-timeline",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "frame": true,
+    "title": "d3-timeline",
+    "width": 1024,
+    "height": 768,
+    "min_width": 992,
+    "min_height": 480
+  },
+  "contributors": [
+    {
+      "name": "romseguy",
+      "email": "rom.seguy@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<div class="messageBox centered">
+  <div class="modal-header">
+    <h1>CommDaB Configuration</h1>
+  </div>
+
+  <div class="modal-body">
+    <form class="form-horizontal" role="form">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-md-4 control-label">All projects and data</label>
+
+          <div class="col-md-8">
+            <button data-bind="click: exportCfg"
+                type="button" class="btn btn-primary">Export
+            </button>
+            <button data-bind="click: importCfg"
+                type="button" class="btn btn-primary">Import
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button data-bind="click: closeDialog"
+        class="btn btn-danger">Close
+    </button>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="messageBox">
+  <div data-bind="css: { 'preview': previewText() === 'Back' }"
+     class="modal-header">
+    <div class="row">
+      <div class="col-md-1 text-right">
+        <button data-bind="click: save"
+            type="button" class="btn btn-success">Save</button>
+      </div>
+      <!-- ko if: filter.name -->
+      <div class="col-md-1">
+        <button data-bind="click: remove"
+            type="button" class="btn btn-danger">Delete</button>
+      </div>
+      <!-- /ko -->
+      <div data-bind="css: filter.name() !== '' ? 'col-md-8' : 'col-md-9'">
+        <h1 class="title">Filter<!-- ko if: filter.name -->: <span data-bind="text: filter.name"></span><!-- /ko --></h1>
+      </div>
+      <div class="col-md-1">
+        <button data-bind="click: preview, text: previewText, css: { 'btn-info': previewText() === 'Preview', 'btn-success': previewText() === 'Back' }"
+            type="button" class="btn"></button>
+      </div>
+      <div class="col-md-1">
+        <button data-bind="click: apply"
+            type="button" class="btn btn-warning">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <!-- ko compose: filter --><!-- /ko -->
+  </div>
+
+  <div class="modal-footer">
+  </div>
+</div>

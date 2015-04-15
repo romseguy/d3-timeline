@@ -1,0 +1,144 @@
+<form data-bind="submit: function(){}"
+    class="form-horizontal clearfix" role="form">
+  <fieldset>
+    <legend data-bind="text: displayName"></legend>
+
+    <div class="form-group" data-bind="validationElement: chartName">
+      <label class="col-md-3 col-lg-2 control-label required" for="chartName">Chart Name</label>
+
+      <div class="col-md-4 col-lg-2">
+        <input data-bind="value: chartName"
+             type="text" id="chartName" class="form-control input-md" placeholder="">
+      </div>
+    </div>
+
+    <!-- ko if: chartName.isValid() -->
+      <div class="form-group">
+        <label class="col-md-3 col-lg-2 control-label" for="selectedDataSourceGroups">Data Source(s)</label>
+
+        <!-- Multiple data sources selector -->
+        <div class="col-md-4 col-lg-2">
+          <select data-bind="
+          options: dataSourceGroups,
+          optionsText: 'name',
+          selectedOptions: selectedDataSourceGroups
+          " id="selectedDataSourceGroups" class="form-control" multiple="multiple"></select>
+        </div>
+      </div>
+
+      <!-- ko if: selectedDataSourceGroups().length > 0 -->
+        <div class="form-group">
+          <label class="col-md-3 col-lg-2 control-label required" for="orderedBy">Date field</label>
+
+          <!-- Date field selector -->
+          <div class="col-md-4 col-lg-2">
+            <select data-bind="
+            optionsCaption: 'Select a type...',
+            options: dateFields,
+            value: selectedDateField
+            " id="orderedBy" class="form-control"></select>
+          </div>
+        </div>
+
+        <!-- ko if: selectedDateField() -->
+
+          <!-- ko compose: {
+            model: 'helpers/datetimepicker',
+            activationData: {
+              startDate: startDate,
+              endDate: endDate,
+              minDate: minDate,
+              maxDate: maxDate
+            }
+           } --><!-- /ko -->
+
+          <!-- ko if: startDate.isValid() && endDate.isValid() -->
+            <legend>Colors</legend>
+
+            <!-- ko foreach: colors -->
+            <div class="form-group">
+              <label data-bind="text: name" class="col-md-3 col-lg-2 control-label"></label>
+
+              <!-- ko if: start() === end() -->
+              <div class="col-md-2 col-lg-1 col-md-offset-2">
+                <input data-bind="value: hex" type="color" class="colorpicker"/>
+              </div>
+              <!-- /ko -->
+
+              <!-- ko if: start() !== end() -->
+              <div class="col-md-1 col-lg-1">
+                <div data-bind="text: start" style="padding-top: 6px; text-align: center"></div>
+              </div>
+
+              <!-- left comparator -->
+              <div class="col-md-1" style="padding-top: 6px; font-weight: bold">
+                <
+              </div>
+
+
+              <div class="col-md-1 col-lg-1">
+                <input data-bind="value: hex" type="color" class="colorpicker"/>
+              </div>
+
+              <!-- right comparator -->
+              <div class="col-md-1" style="padding-top: 6px; padding-left: 32px; font-weight: bold">
+                <!-- ko if: parseInt(end()) !== 100 -->
+                ≤
+                <!-- /ko -->
+                <!-- ko if: parseInt(end()) === 100 -->
+                <
+                <!-- /ko -->
+              </div>
+
+              <div class="col-md-2 col-lg-1" style="padding-left: 0; padding-right: 30px">
+                <!-- ko if: parseInt(end()) !== 100 -->
+                <select data-bind="foreach: new Array(103 - index), value: end" class="form-control" id="end">
+                  <!-- ko if: $index() > $parent.start() -->
+                  <option data-bind="text: $index()"></option>
+                  <!-- /ko -->
+                </select>
+                <!-- /ko -->
+                <!-- ko if: parseInt(end()) === 100 -->
+                <div data-bind="text: end" style="padding-top: 6px; padding-left: 10px"></div>
+                <!-- /ko -->
+              </div>
+              <!-- /ko -->
+            </div>
+            <!-- /ko -->
+
+            <legend>Miscellaneous</legend>
+
+            <div class="form-group">
+              <label class="col-md-3 col-lg-2 control-label" for="weeksPadding">Number of additional weeks around start and end dates</label>
+
+              <div class="col-md-2 col-lg-1">
+                <select data-bind="foreach: new Array(51), value: weeksPadding" class="form-control" id="weeksPadding">
+                  <option data-bind="text: $index()"></option>
+                </select>
+              </div>
+
+              <div class="col-md-1">
+                <label class="control-label">Weeks</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 col-lg-2 control-label" for="minimumDuration">Minimum number of displayed weeks</label>
+
+              <div class="col-md-2 col-lg-1">
+                <select data-bind="foreach: durationBetweenStartEndDates, value: minimumDuration" class="form-control" id="minimumDuration">
+                  <option data-bind="text: $index()+1"></option>
+                </select>
+              </div>
+
+              <div class="col-md-1">
+                <label class="control-label">Weeks</label>
+              </div>
+            </div>
+          <!-- /ko -->
+        <!-- /ko -->
+      <!-- /ko -->
+    <!-- /ko -->
+
+  </fieldset>
+</form>

@@ -1,0 +1,31 @@
+<div class="messageBox centered">
+  <div class="modal-header">
+    <h3>Please answer the security question</h3>
+  </div>
+
+  <div class="modal-body">
+    <form data-bind="submit: check"
+        class="form-horizontal" role="form">
+      <fieldset>
+        <div class="form-group" data-bind="validationElement: answer">
+          <label data-bind="text: question"
+               class="col-md-4 control-label" for="answer"></label>
+
+          <div class="col-md-7">
+            <input data-bind="value: answer, valueUpdate: 'afterkeydown'"
+                 type="text" id="answer" class="form-control" placeholder="">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button data-bind="click: closeDialog"
+        class="btn btn-danger pull-left">Cancel
+    </button>
+    <button data-bind="
+    click: check,
+    text: 'Check'" class="btn btn-success"></button>
+  </div>
+</div>

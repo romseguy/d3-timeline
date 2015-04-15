@@ -1,0 +1,29 @@
+<form class="form-horizontal data-source" role="form">
+  <fieldset>
+    <legend class="sub">
+      <i class="fa fa-file-excel-o"></i> <span data-bind="text: displayName"></span>
+    </legend>
+
+    <div class="form-group" data-bind="validationElement: filePath">
+      <label for="filePath" class="col-md-3 control-label">File</label >
+
+      <div class="col-md-4 col-lg-2">
+        <input data-bind="value: filePath"
+             type="file" id="filePath">
+      </div>
+
+      <div class="col-md-5 col-lg-7">
+        <div class="btn-group">
+          <button data-bind="click: $parent.check.bind($parent), enable: !isLoading() && canCheck" class="btn btn-success">Check file</button>
+          <i data-bind="css: validFormat() ? 'fa-check' : 'fa-times'" class="format btn fa"></i>
+        </div>
+
+        <button data-bind="click: $parent.showData.bind($parent), enable: !isLoading() && validFormat() && excelSource && excelSource.data.length > 0" class="btn btn-info">Show data</button>
+
+        <!-- ko if: isLoading() -->
+        <i class="fa fa-spinner fa-2x fa-spin"></i>
+        <!-- /ko -->
+      </div>
+    </div>
+  </fieldset>
+</form>

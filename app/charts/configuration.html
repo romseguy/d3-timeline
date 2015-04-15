@@ -1,0 +1,90 @@
+<section>
+  <form class="form-horizontal clearfix charts-configuration" role="form">
+    <fieldset>
+      <legend id="sticky">
+        <div class="row nomargin">
+          <!-- ko if: selectedAction -->
+          <div class="col-md-1">
+            <button data-bind="click: reset" type="button" class="btn btn-danger">Reset</button>
+          </div>
+          <!-- /ko -->
+
+          <div class="col-md-10">
+            <h3>
+              <i class="fa fa-bar-chart-o"></i> <span data-bind="text: displayName"></span>
+            </h3>
+          </div>
+
+          <div class="col-md-1">
+            <!-- ko if: chartForm() !== null && (
+            (chartForm().selectedDateField !== undefined && chartForm().selectedDateField())
+            || (chartForm().selectedDateFields !== undefined && chartForm().selectedDateFields().length !== 0)
+            ) -->
+              <!-- ko ifnot: isLoading() -->
+                <button data-bind="click: save" class="btn btn-success">Save</button>
+              <!-- /ko -->
+              <!-- ko if: isLoading() -->
+                <i class="fa fa-spinner fa-2x fa-spin"></i>
+              <!-- /ko -->
+            <!-- /ko -->
+          </div>
+        </div>
+      </legend>
+
+      <!-- ko if: currentProject()[chartType].length > 0 -->
+        <div class="form-group" data-bind="validationElement: selectedAction">
+          <label class="col-md-3 col-lg-2 control-label" for="radio-new">Choose an action</label>
+
+          <div class="col-md-6">
+            <div class="radio">
+              <label>
+                <input data-bind="checked: selectedAction" value="new" type="radio" id="radio-new">
+                New
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input data-bind="checked: selectedAction" value="load" type="radio" id="radio-load">
+                Modify
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input data-bind="checked: selectedAction" value="delete" type="radio"
+                     id="radio-delete">
+                Delete
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ko if: selectedAction() === 'delete' || selectedAction() === 'load' -->
+          <div class="form-group" data-bind="validationElement: selectedChart">
+            <label class="col-md-3 col-lg-2 control-label" for="selectedChart">Select an existing Chart</label>
+
+            <div class="col-md-4 col-lg-2">
+              <select data-bind="
+              options: currentProject()[chartType],
+              optionsText: 'name',
+              optionsCaption: '',
+              value: selectedChart
+              " id="selectedChart" class="form-control"></select>
+            </div>
+          </div>
+        <!-- /ko -->
+
+        <!-- ko if: selectedAction -->
+          <div class="form-group">
+            <div class="col-md-offset-3 col-lg-offset-2 col-md-6">
+              <button id="proceed" data-bind="click: proceed" class="btn btn-success">Proceed</button>
+            </div>
+          </div>
+        <!-- /ko -->
+      <!-- /ko -->
+    </fieldset>
+  </form>
+
+  <!-- ko if: showForm() -->
+    <!-- ko compose: { model: chartForm, preserveContext: true } --><!-- /ko -->
+  <!-- /ko -->
+</section>

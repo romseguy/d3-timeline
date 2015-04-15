@@ -1,0 +1,9 @@
+@media print {
+    section#navigation {
+        display: none;
+    }
+
+    .page-wrapper {
+        margin: 0;
+    }
+}

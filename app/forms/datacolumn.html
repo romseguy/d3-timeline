@@ -1,0 +1,34 @@
+<div class="form-group data-column">
+  <div class="col-md-1 text-center">
+    <!-- ko if: nameVM !== 'id' && nameVM !== 'name' && nameVM != 'date' -->
+    <button data-bind="
+    click: disable,
+    css: disabled() ? 'red fa-toggle-off' : 'green fa-toggle-on'
+    " class="btn btn-link fa"></button>
+    <!-- /ko -->
+  </div>
+
+  <label data-bind="attr: { for: name() }, text: name"
+         class="col-md-2 control-label"></label>
+
+  <!-- Excel column name -->
+  <div class="col-md-3" data-bind="validationElement: value">
+    <input data-bind="
+    disable: disabled,
+    value: value,
+    attr: { id: name() }"
+           type="text" class="form-control" placeholder="Enter column name">
+  </div>
+
+  <!-- ko if: format !== '' -->
+  <div data-bind="validationElement: format">
+    <label data-bind="attr: { for: name() + ' Format' }"
+           class="col-md-1 control-label">Format</label>
+
+    <div class="col-md-3">
+      <input data-bind="value: format, valueUpdate: 'afterkeydown', attr: { id: name() + ' Format' }"
+             type="text" class="form-control uppercase" placeholder="DD/MM/YYYY">
+    </div>
+  </div>
+  <!-- /ko -->
+</div>

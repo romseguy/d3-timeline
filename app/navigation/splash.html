@@ -1,0 +1,68 @@
+<div class="splash">
+
+  <!-- ko if: isLoggedIn -->
+  <div class="top-right">
+    <button data-bind="click: configuration"
+        class="btn btn-primary btn-configuration">Configuration</button>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko ifnot: isLoggedIn -->
+  <div class="bottom-left">
+    <button data-bind="click: login"
+        class="btn btn-danger btn-admin">Administrator</button>
+  </div>
+  <!-- /ko -->
+
+  <div class="container-fluid">
+    <!-- ko if: isLoggedIn -->
+    <div class="row">
+      <div class="col-md-12">
+      <button data-bind="click: newProject"
+          class="btn btn-primary">
+        <i class="fa fa-wrench fa-lg"></i> New Project
+      </button>
+      </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="row top10">
+      <div class="col-md-12">
+        <select data-bind="
+        enable: state.projects().length > 0 && !isLoading(),
+        options: state.projects,
+        optionsCaption: state.projects().length > 0 ? 'Select a project...' : '',
+        optionsText: 'name',
+        optionsValue: 'name',
+        value: selectedProjectName"
+            class="form-control">
+        </select>
+      </div>
+    </div>
+
+    <div class="row top10">
+      <div class="col-md-6">
+        <button data-bind="
+        click: load,
+        enable: state.projects().length > 0  && selectedProjectName() && !isLoading()"
+            class="btn btn-success btn-block">
+          <i class="fa fa-repeat fa-lg"></i> Load
+        </button>
+      </div>
+
+      <!-- ko if: isLoggedIn -->
+      <div class="col-md-6">
+        <button data-bind="
+        click: deleteProject,
+        enable: state.projects().length > 0 && selectedProjectName() && !isLoading()"
+            class="btn btn-danger btn-block"><i class="fa fa-trash-o fa-lg"></i> Delete
+        </button>
+      </div>
+      <!-- /ko -->
+    </div>
+  </div>
+
+  <div data-bind="css: { active: isLoading }" class="loader">
+    <i class="fa fa-spinner fa-3x fa-spin"></i>
+  </div>
+</div>

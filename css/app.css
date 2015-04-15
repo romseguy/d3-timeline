@@ -1,0 +1,61 @@
+html,
+body,
+#applicationHost,
+#wrapper {
+    height: 100%;
+}
+
+/* Navigation */
+.loader {
+    display: none;
+}
+
+.loader.active {
+    display: block;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
+#btn-fullscreen {
+    margin: 14px 16px 0 5px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* @Overrides */
+.form-horizontal .form-group {
+    margin: 0 0 15px 0;
+}
+
+section form legend {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 0;
+}
+
+section > form > fieldset > legend:first-child {
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 0;
+}
+
+.colorpicker {
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Dashboard */
+.dsg-header .fa-check {
+    color: green;
+}
+
+.center td, .center th {
+    text-align: center;
+}

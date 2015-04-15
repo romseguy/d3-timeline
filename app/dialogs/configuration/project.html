@@ -1,0 +1,76 @@
+<div class="messageBox">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-1">
+        <button data-bind="click: closeDialog" type="button" class="btn btn-danger">Cancel</button>
+      </div>
+
+      <div class="col-md-10">
+        <h1 data-bind="html:displayName"></h1>
+      </div>
+
+      <div class="col-md-1">
+        <!-- ko if: isLoading -->
+        <i class="fa fa-spinner fa-2x fa-spin"></i>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading -->
+        <button data-bind="click: save" class="btn btn-success">Save</button>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <form data-bind="submit: save"
+        class="form-horizontal noborder project-configuration" role="form">
+      <fieldset>
+        <legend>
+          <i class="fa fa-keyboard-o"></i> General
+        </legend>
+
+        <div class="form-group" data-bind="validationElement: projectName">
+          <label class="col-md-2 control-label" for="projectName">Project Name</label>
+
+          <div class="col-md-4">
+            <input data-bind="value: projectName"
+                 type="text" id="projectName" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group" data-bind="validationElement: dataSourceGroupForms">
+          <div class="col-md-offset-2 col-md-3">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Append Data Source <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pointer" role="menu">
+                <li><a data-bind="click: function() { append('excel') }">EXCEL</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <ul data-bind="foreach: dataSourceGroupForms"
+       class="nav nav-tabs">
+      <li data-bind="css: { active: id() === $parent.activeTab() }">
+        <a data-bind="attr: { href: '#ds' + $data.id() }, click: function() { $parent.clickedTab(this); }" data-toggle="tab">
+				  <i class="fa fa-bars"></i> Data Source n°<span data-bind="text: $data.id()"></span>
+          <button data-bind="
+          click: function() { $parent.remove(this); },
+          css: { hide: id() !== $parent.activeTab() }
+          " class="btn btn-link fa fa-minus-circle"></button>
+				</a>
+      </li>
+    </ul>
+
+    <div data-bind="foreach: dataSourceGroupForms" id="content" class="tab-content">
+      <div data-bind="
+      attr: { id: 'ds' + $data.id() },
+      css: { active: $data.id() === $parent.activeTab() },
+      compose: $data
+      " class="tab-pane"></div>
+    </div>
+  </div>
+</div>

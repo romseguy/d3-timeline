@@ -1,0 +1,83 @@
+/* Generic */
+.nomargin {
+    margin: 0;
+}
+
+.bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.top-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.top5 {
+    margin-top: 5%;
+}
+
+.top7 {
+    margin-top: 7%;
+}
+
+.top10 {
+    margin-top: 10%;
+}
+
+.top15 {
+    margin-top: 15%;
+}
+
+.top17 {
+    margin-top: 17%;
+}
+
+.top30 {
+    margin-top: 30%;
+}
+
+/* Forms */
+.form-horizontal legend {
+    padding: 15px 0 10px 15px;
+    font-size: 18px;
+}
+
+/* Toastr */
+.toast-top-center {
+    top: 40%;
+    left: 50%;
+    margin-left: -150px;
+}
+
+@media all and (max-width: 240px) {
+    .toast-top-center {
+        margin-left: -54px;
+    }
+}
+
+@media all and (min-width: 241px) and (max-width: 320px) {
+    .toast-top-center {
+        margin-left: -64px;
+    }
+}
+
+@media all and (min-width: 321px) and (max-width: 480px) {
+    .toast-top-center {
+        margin-left: -96px;
+    }
+}

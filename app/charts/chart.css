@@ -1,0 +1,23 @@
+/* references styles that do not need to be exported to image */
+.items {
+  cursor: pointer;
+}
+
+.items path {
+  cursor: default;
+}
+
+.resize rect {
+  visibility: visible !important;
+  fill: #666666;
+}
+
+.d3-tip h1 {
+  font-size: 24px;
+  margin-top: 0px;
+}
+
+.d3-tip h2 {
+  margin-top: 0;
+  font-size: 16px;
+}

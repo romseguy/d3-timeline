@@ -1,0 +1,12 @@
+<section>
+  <div class="col-md-3">
+    From: <!-- ko text: newExtent()[0] --><!-- /ko -->
+     To: <!-- ko text: newExtent()[1] --><!-- /ko -->
+  </div>
+
+  <div class="col-md-2 col-md-offset-7 text-right">
+    <a data-bind="attr: { 'data-original-title': filterTooltip() }" data-toggle="tooltip" data-placement="left" data-html="true" class="pointer">Show Current Filter</a>
+  </div>
+
+  <div class="chart"></div>
+</section>

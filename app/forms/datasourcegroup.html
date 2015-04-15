@@ -1,0 +1,30 @@
+<form class="form-horizontal noborder data-source-group" role="form">
+  <fieldset>
+    <!-- ko ifnot: dataSourceGroup -->
+    <legend>
+      <i class="fa fa-keyboard-o"></i> General
+    </legend>
+
+    <div class="form-group" data-bind="validationElement: name">
+      <label class="col-md-3 control-label" for="name">Name</label>
+
+      <div class="col-md-3">
+        <input data-bind="value: name"
+             type="text" id="name" class="form-control" placeholder="">
+      </div>
+    </div>
+    <!-- /ko -->
+
+    <legend>
+      <i class="fa fa-pencil-square-o"></i> Data columns
+    </legend>
+
+    <!-- ko foreach: dataColumnForms -->
+      <!-- ko compose: $data --><!-- /ko -->
+    <!-- /ko -->
+
+    <div data-bind="foreach: dataSourceForms">
+      <!-- ko compose: { view: 'forms/excel' } --><!-- /ko -->
+    </div>
+  </fieldset>
+</form>

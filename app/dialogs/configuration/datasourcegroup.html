@@ -1,0 +1,43 @@
+<div class="messageBox">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-1">
+        <button data-bind="click: closeDialog" type="button" class="btn btn-danger">Cancel</button>
+      </div>
+      <div class="col-md-10">
+        <h1>
+          <!-- ko ifnot: dataSourceGroupForm.newForm -->
+          <i class="fa fa-bars"></i> Data Source <span data-bind="text: dataSourceGroupForm.name()"></span>
+          <!-- ko if: currentProject().dataSourceGroups.length > 1 -->
+          <button type="submit"
+              data-bind="click: remove"
+              title="Remove Data Source"
+              class="btn btn-link fa fa-minus-circle"></button>
+          <!-- /ko -->
+          <!-- /ko -->
+          <!-- ko if: dataSourceGroupForm.newForm -->
+          Project <span data-bind="text: currentProject().name"></span>: New Data Source
+          <!-- /ko -->
+        </h1>
+      </div>
+
+      <div class="col-md-1">
+        <!-- ko if: isLoading -->
+        <i class="fa fa-spinner fa-2x fa-spin"></i>
+        <!-- /ko -->
+        <!-- ko ifnot: isLoading -->
+        <button data-bind="click: save" class="btn btn-success pull-right">Save</button>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <!-- ko compose: { model: dataSourceGroupForm } --><!-- /ko -->
+  </div>
+
+  <div class="modal-footer">
+    <!--<button data-bind="click: closeDialog" type="button" class="btn btn-danger pull-right">Cancel</button>-->
+    <!--<button data-bind="click: save" class="btn btn-success">Save</button>-->
+  </div>
+</div>

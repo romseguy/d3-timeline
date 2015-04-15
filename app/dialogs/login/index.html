@@ -1,0 +1,75 @@
+<script id="createPasswordTemplate" type="text/html">
+  <div class="form-group" data-bind="validationElement: confirmPassword">
+    <label class="col-md-4 control-label" for="confirmPassword">Confirm password</label>
+
+    <div class="col-md-7">
+      <input data-bind="value: confirmPassword, valueUpdate: 'afterkeydown'"
+           type="password" id="confirmPassword" class="form-control" placeholder="">
+    </div>
+  </div>
+
+  <div class="form-group" data-bind="validationElement: question">
+    <label class="col-md-4 control-label" for="question">Question</label>
+
+    <div class="col-md-7">
+      <input data-bind="value: question"
+           type="text" id="question" class="form-control" placeholder="">
+    </div>
+  </div>
+
+  <div class="form-group" data-bind="validationElement: answer">
+    <label class="col-md-4 control-label" for="answer">Answer</label>
+
+    <div class="col-md-7">
+      <input data-bind="value: answer"
+           type="text" id="answer" class="form-control" placeholder="">
+    </div>
+  </div>
+</script>
+
+<script id="existingPasswordTemplate" type="text/html">
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="password">Forgot password?</label>
+
+    <div class="col-md-7">
+      <button data-bind="click: reset"
+          type="button" class="btn btn-danger">Reset
+      </button>
+    </div>
+  </div>
+</script>
+
+<div class="messageBox centered">
+  <div class="modal-header">
+    <h3 data-bind="text: formTemplate() === 'createPasswordTemplate' ? 'Create a new administrator password' : 'Enter the administrator password'"></h3>
+  </div>
+
+  <div class="modal-body">
+    <form data-bind="submit: formTemplate() === 'createPasswordTemplate' ? create : login"
+        class="form-horizontal" role="form">
+      <fieldset>
+        <div class="form-group" data-bind="validationElement: password">
+          <label class="col-md-4 control-label" for="password">Password</label>
+
+          <div class="col-md-7">
+            <input data-bind="value: password, valueUpdate: 'afterkeydown'"
+                 type="password" id="password" class="form-control" placeholder="">
+          </div>
+        </div>
+
+        <!-- ko template: { name: formTemplate } -->
+        <!-- /ko-->
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button data-bind="click: closeDialog"
+        class="btn btn-danger pull-left">Close
+    </button>
+    <button data-bind="
+    click: formTemplate() === 'createPasswordTemplate' ? create : login,
+    text: formTemplate() === 'createPasswordTemplate' ? 'Create' : 'Login'"
+        class="btn btn-success"></button>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+/* Containers */
+.app-modal-host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+}
+
+.app-modal-host .messageBox {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-clip: padding-box;
+}
+
+.app-modal-host .messageBox.centered {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.app-modal-host .messageBox.transparent {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+/* Header */
+.app-modal-host .modal-header.transparent {
+    border: 0;
+}
+
+.app-modal-host .modal-header h1 {
+    font-size: 2em;
+    margin: 0 0 0 20px;
+}
+
+/* Body */
+.app-modal-host .modal-body {
+    padding: 10px 0 0 0;
+}
+
+.app-modal-host .modal-body legend {
+    padding: 10px 0 10px 15px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 0;
+}
+
+.app-modal-host .modal-body form.noborder > fieldset > legend:first-child {
+    border: 0;
+}
+
+.app-modal-host .modal-body legend .fa {
+    margin-right: 10px;
+}
+
+.app-modal-host .modal-body legend .fa.sub {
+    margin-right: 15px;
+}
+
+.app-modal-host .modal-body legend.sub {
+    font-size: 1.3em;
+    padding-left: 30px;
+}
+
+.app-modal-host .modal-body table {
+    width: 95%;
+    margin: 20px auto;
+}
+
+/* fixedHeader */
+/* Containers */
+.app-modal-host.fixedHeader {
+    width: 100%;
+    height: 100%;
+}
+.app-modal-host.fixedHeader .messageBox {
+    margin-top: -1px;
+}
+.app-modal-host.fixedHeader .modal-header {
+    position: fixed;
+    background: white;
+    width: 98%;
+    z-index: 1050;
+}
+
+/* Header */
+.app-modal-host.fixedHeader .modal-header.preview {
+    visibility: visible;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Body */
+.app-modal-host.fixedHeader .modal-body {
+    margin-top: 70px;
+}
+

@@ -1,0 +1,66 @@
+form.project-configuration legend {
+    margin-bottom: 0;
+}
+
+form.charts-configuration legend#sticky h3 {
+    margin-top: 10px;
+}
+
+form.data-source-group legend {
+    margin-bottom: 0;
+}
+
+form.data-source .format {
+    cursor: default;
+    font-size: 1.4em;
+}
+
+form.data-source .format.fa-times {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+form.data-source .format.fa-check {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+form.data-source input#filePath {
+    padding-top: 5px;
+}
+
+form.data-column button {
+    padding-top: 10px;
+}
+
+form.data-column .fa-toggle-off {
+    color: red !important;
+}
+
+form.data-column .fa-toggle-on {
+    color: green !important;
+}
+
+form.filter .fa-question-circle {
+    color: blue;
+}
+
+table.data-source .status {
+    font-weight: bold;
+}
+
+table.data-source .status.error {
+    color: red;
+}
+
+table.data-source .status.ok {
+    color: green;
+}
+
+section .page-header {
+    padding: 20px 0 20px 20px;
+    margin-top: 0;
+    font-size: 2em;
+}
