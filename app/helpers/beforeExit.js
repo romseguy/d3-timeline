@@ -4,7 +4,7 @@ define(['durandal/app'], function (app) {
     var options = ['Yes', 'No'];
     var msg = 'Press yes to exit or no to get back to where you were.';
 
-    app.showMessage(msg, 'Are you sure you want to exit CommDaB?', options).then(function (selectedOption) {
+    app.showMessage(msg, 'Are you sure you want to exit the application?', options).then(function (selectedOption) {
       switch (selectedOption) {
         case 'Yes':
           self.close(true);
