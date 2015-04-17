@@ -8,9 +8,11 @@ The purpose was to make the application as generic as possible, stripped off the
 
 # How does it work?
 
-*Binaries for Linux and Windows are on the way.*
+[Download and run Linux x64 binaries](https://github.com/romseguy/d3-timeline/raw/master/bin/d3-timeline-20150418-linux-x64.zip)
 
-Until then, download and install node-webkit 0.8.6 available [here](https://github.com/nwjs/nw.js).
+[Download and run Windows x64 binaries](https://github.com/romseguy/d3-timeline/raw/master/bin/d3-timeline-20150417-windows-x64.zip)
+
+For Mac (sorry) download and install node-webkit 0.8.6 available [here](https://github.com/nwjs/nw.js).
 
 Launch the application like this: ``` /path/to/nw /path/to/d3-timeline ```.
 
