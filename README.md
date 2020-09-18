@@ -4,9 +4,13 @@ Because of intellectual property law I stripped out business data from this [NW.
 
 Now the application is generic as possible, stripped off the corporate-specific features and data, and is used to show off my previous work.
 
-# How does it work?
+# Linux
 
 [Download and run Linux x64 binaries](https://github.com/romseguy/d3-timeline/raw/master/bin/d3-timeline-20150418-linux-x64.zip)
+
+You might need to `sudo apt install libudev0` if you get this error:
+
+```./d3-timeline: error while loading shared libraries: libudev.so.0: cannot open shared object file: No such file or directory```
 
 [Download and run Windows x64 binaries](https://github.com/romseguy/d3-timeline/raw/master/bin/d3-timeline-20150417-windows-x64.zip)
 
