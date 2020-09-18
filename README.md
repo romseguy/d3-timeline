@@ -1,4 +1,5 @@
 # Previous work for french corporation Total (early 2014)
+![1](https://i.imgur.com/C0sgO78.png)
 
 ## Linux
 
