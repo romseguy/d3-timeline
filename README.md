@@ -1,10 +1,8 @@
-# What is it?
+# Previous work for french corporation Total (early 2014)
 
-This is an adaptation of a [NW.js](http://nwjs.io) application that was originally developed for a French corporation.
+Because of intellectual property law I stripped out business data from this [NW.js](http://nwjs.io) app.
 
-# Why?
-
-The purpose was to make the application as generic as possible, stripped off the corporate-specific features and data.
+Now the application is generic as possible, stripped off the corporate-specific features and data, and is used to show off my previous work.
 
 # How does it work?
 
